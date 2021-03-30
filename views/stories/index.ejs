@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stories Index</title>
+    </head>
+    <body>
+
+        <%- include('../header.ejs') %> 
+
+        <H1>Stories Index</H1>
+
+        <% if(stories.length>0){ %> 
+            <% stories.forEach( story=>{  %> 
+                <label>Story ID:</label> <%= story._id %> <br>
+                <label for="">Story Title:</label> <%= story.title %> <br>
+                <label for="">Story's Author Object ID:</label> <%= story.author %> <br>
+                
+                <a href="/api/stories/<%= story.title %>">View Story's Author Name</a> <br>
+                <label for="">Fans Array Object ID:</label> <%=  %> <br> 
+            <% }) %>
+        <% } else { %>
+            No Stories found
+        <% } %>        
+    </body>
+</html>

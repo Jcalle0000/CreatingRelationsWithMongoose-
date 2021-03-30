@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Upload File</title>
+</head>
+<body>
+    <%- include('../header.ejs') %> 
+    <h1>New Person</h1>
+
+    <% if(people.length>0){ %> 
+        People:
+        <% people.forEach( person=>{  %> 
+            <label for="">Person Object ID:</label> <%= person._id %> <br>
+            <label for="">Person Name:</label> <%= person.name %> <br>
+            <label for="">Person Age:</label> <%= person.age %> <br>
+        <% }) %>
+    <% } else { %>
+        <%  console.log("Ejs - There no people") %>
+        No people found
+    <% } %>
+
+    <br>
+
+    <form action="/api/stories/new" method="POST"  >
+        <!-- enctype="multipart/form-data" -->
+        
+        <label>Story Title:</label><input type="text" name="title" value=""></input> <br>
+        <label>Add Author Object ID:</label><input type="text" name="authorID" value=""></input> <br>
+        <label>Add Fans Object ID:</label><input type="text" name="fanID" value=""></input> <br>
+        <label>Add Story</label><input type="submit" value="submit"></input> <br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>People Index</title>
+    </head>
+    <body>
+
+        <%- include('../header.ejs') %> 
+
+        <H1>People Index</H1>
+
+        <% if(people.length>0){ %> 
+            People:
+            <% people.forEach( person=>{  %> 
+                <label for="">Person Object ID:</label> <%= person._id %> <br>
+                <label for="">Person Name:</label> <%= person.name %> <br>
+                <a href="/api/people/<%= person._id %>">View Person Stories</a> <br>
+                <label for="">Person Age:</label> <%= person.age %> <br>
+                <label for="">Stories Array:</label> <%=  %> <br> 
+            <% }) %>
+            <br>
+        <% } else { %>
+            <%  console.log("Ejs - There no people") %>
+            No people found
+        <% } %>
+
+      
+        
+    </body>
+</html>
